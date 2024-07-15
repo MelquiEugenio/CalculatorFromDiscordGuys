@@ -1,3 +1,4 @@
+import 'package:calculator_discord_guys/Operations.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -30,8 +31,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final textEditor = TextEditingController();
-
   // Helper function to create a calculator button
+
   Widget buildButton(String text, Color color) {
     return SizedBox(
       width: 60,
@@ -39,10 +40,18 @@ class _MyHomePageState extends State<MyHomePage> {
       child: ElevatedButton(
         onPressed: () {
           setState(() {
-            // Handle button press logic
+              var operations = Operations();
+              var displayText = textEditor.text;
+
+           if (text == "*") {
+             operations.multiply(textEditor);
+           }
+
             if (text == '=') {
-              // Perform calculation
-              // This is a placeholder, actual calculation logic needed
+
+              // operations.numberOne = 1;
+
+
               textEditor.text = 'Result';
             } else {
               textEditor.text += text;
