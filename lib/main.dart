@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final textEditor = TextEditingController();
+  var operations = Operations();
   // Helper function to create a calculator button
 
   Widget buildButton(String text, Color color) {
@@ -39,26 +40,31 @@ class _MyHomePageState extends State<MyHomePage> {
       height: 60,
       child: ElevatedButton(
         onPressed: () {
+          
           setState(() {
-              var operations = Operations();
-              var displayText = textEditor.text;
+          var displayText = textEditor.text;
 
-           if (text == "*") {
-             operations.multiply(textEditor);
-           }else if(text == "+"){
-              operations.addition(textEditor);
-           }else if(text == "-"){
-              operations.subtraction(textEditor);
-           }else if(text == "/"){
+          if (text == "*") {
+            operations.multiply(textEditor);
+          }else if(text == "+"){
+            operations.addition(textEditor);
+          }else if(text == "-"){
+            operations.subtraction(textEditor);
+          }else if(text == "/"){
             operations.divide(textEditor);
-           }
+          }
 
-            if (text == '=') {
+          if (text == '=') {
 
-              operations.equal(textEditor);
-            } else {
+            operations.equal(textEditor);
+          } else {
+
+            var listOfOperations =  ["*","/","-","+"];
+            if(!listOfOperations.contains(text)){
               textEditor.text += text;
-            }
+            } 
+
+          }
           });
         },
         style: ElevatedButton.styleFrom(
