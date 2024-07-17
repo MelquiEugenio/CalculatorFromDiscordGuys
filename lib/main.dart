@@ -40,7 +40,6 @@ class _MyHomePageState extends State<MyHomePage> {
       height: 60,
       child: ElevatedButton(
         onPressed: () {
-          
           setState(() {
           var displayText = textEditor.text;
 
