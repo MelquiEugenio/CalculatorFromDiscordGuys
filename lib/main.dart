@@ -45,14 +45,17 @@ class _MyHomePageState extends State<MyHomePage> {
 
            if (text == "*") {
              operations.multiply(textEditor);
+           }else if(text == "+"){
+              operations.addition(textEditor);
+           }else if(text == "-"){
+              operations.subtraction(textEditor);
+           }else if(text == "/"){
+            operations.divide(textEditor);
            }
 
             if (text == '=') {
 
-              // operations.numberOne = 1;
-
-
-              textEditor.text = 'Result';
+              operations.equal(textEditor);
             } else {
               textEditor.text += text;
             }
